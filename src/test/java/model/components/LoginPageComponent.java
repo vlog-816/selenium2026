@@ -3,6 +3,7 @@ package model.components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@ComponentCssSelector(value = "header-title")
 public class LoginPageComponent {
 
     private WebDriver driver;
