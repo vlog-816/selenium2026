@@ -1,6 +1,7 @@
 package model.pages;
 
 import model.components.Component;
+import model.components.global.body.ProductGridComponent;
 import model.components.global.footer.FooterComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,12 @@ public class BasePage extends Component {
         this.driver = driver;
     }
 
+    public ProductGridComponent productGridComp(){
+        return findComponent(ProductGridComponent.class, driver);
+    }
+
     public FooterComponent footerComp(){
         return findComponent(FooterComponent.class, driver);
     }
+
 }
