@@ -45,17 +45,17 @@ public class Component {
     }
 
     public <T extends Component> List<T> findComponents(Class<T> classComponent, WebDriver driver) {
-        String cssSelector;
+        By componentSelector;
 
         try {
-            cssSelector = classComponent.getAnnotation(ComponentCssSelector.class).value();
+            componentSelector = getCompSelector(classComponent);
         } catch (Exception e) {
             e.printStackTrace();
             throw new IllegalArgumentException("[ERR] You need to provide an Annotation");
         }
 
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(cssSelector)));
-        List<WebElement> results = component.findElements(By.cssSelector(cssSelector));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(componentSelector));
+        List<WebElement> results = component.findElements(componentSelector);
 
         Constructor<T> constructor;
         try {
@@ -71,15 +71,25 @@ public class Component {
 
             try {
                 return constructor.newInstance(driver, webElement);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
 
         }).collect(Collectors.toList());
         return components;
     }
+
+    private By getCompSelector(Class<? extends Component> componentClass) {
+
+        if (componentClass.isAnnotationPresent(ComponentCssSelector.class)) {
+            return By.cssSelector(componentClass.getAnnotation(ComponentCssSelector.class).value());
+        } else if (componentClass.isAnnotationPresent(ComponentXpathSelector.class)) {
+            return By.xpath(componentClass.getAnnotation(ComponentXpathSelector.class).value());
+        } else {
+            throw new IllegalArgumentException("The Component must contain Annotation Selector: " +
+                    ComponentCssSelector.class.getSimpleName() +
+                    ComponentXpathSelector.class.getSimpleName());
+        }
+    }
+
 }
