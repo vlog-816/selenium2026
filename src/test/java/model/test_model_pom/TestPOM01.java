@@ -1,10 +1,8 @@
-package model.test_model;
+package model.test_model_pom;
 
 import model.pages.LoginPageMod01;
-import model.pages.LoginPageMod02;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestPOM01 {
     public static void main(String[] args) {

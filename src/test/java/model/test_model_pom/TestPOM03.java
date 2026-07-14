@@ -1,4 +1,4 @@
-package model.test_model;
+package model.test_model_pom;
 
 import model.components.LoginPageComponent;
 import model.pages.LoginPageMod03;
@@ -16,7 +16,7 @@ public class TestPOM03 {
 //        loginPageMod03.loginPageComp().password();
 //        loginPageMod03.loginPageComp().login();
 
-        model.components.LoginPageComponent loginPageComp = new LoginPageMod03(driver).loginPageComp();
+        LoginPageComponent loginPageComp = new LoginPageMod03(driver).loginPageComp();
         loginPageComp.username("tomsmith");
         loginPageComp.password("SuperSecretPassword!");
         loginPageComp.login();

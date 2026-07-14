@@ -16,7 +16,6 @@ public class TestLoginPage {
 
 
     public <T extends LoginPage> void login(Class<T> loginPageClass) {
-
         try {
             Constructor<T>  constructor = loginPageClass.getConstructor(WebDriver.class);
             T loginPageObj = constructor.newInstance(new ChromeDriver());
