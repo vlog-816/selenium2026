@@ -1,4 +1,4 @@
-package model.test_global_component;
+package test_global_component;
 
 import model.components.global.body.ProductItemComponent;
 import model.pages.HomePage;

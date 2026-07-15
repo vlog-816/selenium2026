@@ -3,7 +3,7 @@
 <suite name="Regession Test" verbose="1" >
     <test name="Footer Test" >
         <classes>
-            <class name="model.test_global_component.FooterTest" />
+            <class name="test_global_component.FooterTest" />
         </classes>
     </test>
 

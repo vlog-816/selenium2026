@@ -1,4 +1,4 @@
-package model.test_model_pom;
+package test_model_pom;
 
 import model.components.LoginPageComponent;
 import model.pages.LoginPageMod03;
