@@ -5,6 +5,7 @@ import model.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import test_flows.global.FooterTestFlow;
 
 public class FooterTest {
 
@@ -35,6 +36,9 @@ public class FooterTest {
 
     @Test
     public void testFooterCategoryPage() {
+        WebDriver driver = new ChromeDriver();
+        FooterTestFlow footerTestFlow = new FooterTestFlow(driver);
+        footerTestFlow.verifyFooterComponent();
     }
 
     @Test
