@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regession Test" verbose="1" >
+    <test name="Footer Test" >
+        <classes>
+            <class name="model.test_global_component.FooterTest" />
+        </classes>
+    </test>
+
+</suite>

@@ -3,18 +3,26 @@ package model.test_global_component;
 import model.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 public class FooterTest {
 
-    public static void main(String[] args) {
-
+    @Test
+    public void testFooterHomepage() {
         WebDriver driver = new ChromeDriver();
+        driver.get("https://demowebshop.tricentis.com/");
 
         try {
-            testFooterHomepage(driver);
-            testFooterCategoryPage(driver);
-            testFooterResgisterPage(driver);
-            testFooterLoginPage(driver);
+
+            HomePage homePage = new HomePage(driver);
+
+            String headerText = homePage.footerComp().informationColumnComp().headerElem().getText();
+            System.out.println(headerText);
+            homePage.footerComp().informationColumnComp().linksElem().forEach(link -> {
+                System.out.println(link.getText());
+                System.out.println(link.getAttribute("href"));
+            });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -22,25 +30,16 @@ public class FooterTest {
         driver.quit();
     }
 
-    private static void testFooterHomepage(WebDriver driver) {
-        driver.get("https://demowebshop.tricentis.com/");
-        HomePage homePage = new HomePage(driver);
-
-        String headerText = homePage.footerComp().informationColumnComp().headerElem().getText();
-        System.out.println(headerText);
-        homePage.footerComp().informationColumnComp().linksElem().forEach(link -> {
-            System.out.println(link.getText());
-            System.out.println(link.getAttribute("href"));
-        });
+    @Test
+    public void testFooterCategoryPage() {
     }
 
-    private static void testFooterCategoryPage(WebDriver driver) {
+    @Test
+    public void testFooterRegisterPage() {
     }
 
-    private static void testFooterResgisterPage(WebDriver driver) {
-    }
-
-    private static void testFooterLoginPage(WebDriver driver) {
+    @Test
+    public void testFooterLoginPage() {
     }
 
 }
