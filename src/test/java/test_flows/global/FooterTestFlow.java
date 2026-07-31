@@ -60,7 +60,7 @@ public class FooterTestFlow {
     }
 
     public void verifyProductCatComponent() {
-
+        Assert.fail("for testing");
         BasePage basePage = new BasePage(driver);
         TopMenuComponent topMenuComp = basePage.topMenuComp();
 
