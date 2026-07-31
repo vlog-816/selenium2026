@@ -1,4 +1,4 @@
-package test_global_component;
+package test.global.footer;
 
 import model.components.global.body.ProductItemComponent;
 import model.pages.HomePage;
@@ -16,6 +16,7 @@ public class FeatureProductTest {
 
         driver.quit();
     }
+
 
     private static void testFeatureProductHomePage(WebDriver driver) {
 

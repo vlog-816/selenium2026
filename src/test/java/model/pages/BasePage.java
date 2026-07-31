@@ -3,6 +3,7 @@ package model.pages;
 import model.components.Component;
 import model.components.global.body.ProductGridComponent;
 import model.components.global.footer.FooterComponent;
+import model.components.global.header.TopMenuComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,10 @@ public class BasePage extends Component {
     public BasePage(WebDriver driver) {
         super(driver, driver.findElement(By.tagName("html")));
         this.driver = driver;
+    }
+
+    public TopMenuComponent topMenuComp(){
+        return findComponent(TopMenuComponent.class, driver);
     }
 
     public ProductGridComponent productGridComp(){
