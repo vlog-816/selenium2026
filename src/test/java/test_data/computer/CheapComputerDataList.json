@@ -1,0 +1,20 @@
+[
+  {
+    "processorType": "Slow",
+    "ram": "8 GB",
+    "hdd": "400 GB",
+    "software": "Image Viever"
+  },
+  {
+    "processorType": "Medium",
+    "ram": "4 GB",
+    "hdd": "320 GB",
+    "software": "Office Suite"
+  },
+  {
+    "processorType": "Fast",
+    "ram": "2 GB",
+    "hdd": "320 GB",
+    "software": "Other Office Suite"
+  }
+]

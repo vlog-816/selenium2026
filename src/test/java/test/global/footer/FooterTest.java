@@ -9,7 +9,6 @@ import test.BaseTest;
 import test_flows.global.FooterTestFlow;
 
 public class FooterTest extends BaseTest {
-
     @Test
     public void testFooterCategoryPage() {
         driver.get("https://demowebshop.tricentis.com/");
