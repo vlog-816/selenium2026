@@ -12,6 +12,7 @@ public class CartItemRowComponent extends Component {
     private static final By unitPriceSel = By.cssSelector(".product-unit-price");
     private static final By quantityInputSel = By.cssSelector(".qty-input");
     private static final By subTotalSel = By.cssSelector(".product-subtotal");
+    private static final By productNameSel = By.cssSelector(".product-name");
 
     public CartItemRowComponent(WebDriver driver, WebElement component) {
         super(driver, component);
@@ -27,6 +28,10 @@ public class CartItemRowComponent extends Component {
 
     public double subTotal(){
         return Double.parseDouble(component.findElement(subTotalSel).getText().trim());
+    }
+
+    public String produtName(){
+        return component.findElement(productNameSel).getText().trim();
     }
 
 
