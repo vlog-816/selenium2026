@@ -1,4 +1,4 @@
-package model.components.computer;
+package model.components.order;
 
 import model.components.ComponentCssSelector;
 import org.openqa.selenium.WebDriver;

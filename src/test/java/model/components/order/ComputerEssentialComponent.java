@@ -1,11 +1,14 @@
-package model.components.computer;
+package model.components.order;
 
-import model.components.Component;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public abstract class ComputerEssentialComponent extends Component {
+import java.util.List;
+
+public abstract class ComputerEssentialComponent extends BaseItemDetailComponent {
+    private final By allOptionSel = By.xpath("//input[@type=\"checkbox\"]");
+
     public ComputerEssentialComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
@@ -22,6 +25,10 @@ public abstract class ComputerEssentialComponent extends Component {
         return selectCompOpt(type);
     }
 
+    public String selectSoftWare(String type) {
+        return selectCompOpt(type);
+    }
+
     protected String selectCompOpt(String type) {
 
         String selectorString = "//label[contains(text(), \"" + type + "\")]";
@@ -31,13 +38,21 @@ public abstract class ComputerEssentialComponent extends Component {
         try {
             optionElem = component.findElement(By.xpath(selectorString));
 
-        } catch (Error ignored) {
+        } catch (Exception ignored) {
         }
 
         if (optionElem != null) {
             optionElem.click();
             return optionElem.getText();
         } else throw new RuntimeException(type + " is not existing to select");
-
     }
+
+    public void unselectAllOptions() {
+        List<WebElement> checkboxOpts = component.findElements(allOptionSel);
+
+        for (WebElement checkbox : checkboxOpts) {
+            if (checkbox.getAttribute("checked") != null) checkbox.click();
+        }
+    }
+
 }

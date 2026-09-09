@@ -1,6 +1,6 @@
 package test.computer;
 
-import model.components.computer.CheapComputerComponent;
+import model.components.order.CheapComputerComponent;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;

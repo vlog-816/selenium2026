@@ -1,6 +1,6 @@
 package test.computer;
 
-import model.components.computer.StandardComputerComponent;
+import model.components.order.StandardComputerComponent;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
@@ -18,6 +18,7 @@ public class BuyingStandardComputerTest extends BaseTest {
                 new OrderTestFlow<>(driver, StandardComputerComponent.class, computerData);
 
         orderTestFlow.buildAndAddToCart();
+        orderTestFlow.verifyShoppingCartPage();
     }
 
     @DataProvider

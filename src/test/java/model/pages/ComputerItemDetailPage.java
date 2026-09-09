@@ -1,6 +1,6 @@
 package model.pages;
 
-import model.components.computer.ComputerEssentialComponent;
+import model.components.order.ComputerEssentialComponent;
 import org.openqa.selenium.WebDriver;
 
 public class ComputerItemDetailPage extends BasePage{

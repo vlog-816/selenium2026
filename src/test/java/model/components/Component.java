@@ -1,11 +1,13 @@
 package model.components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.lang.model.element.Element;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.time.Duration;
@@ -95,5 +97,18 @@ public class Component {
                     ComponentXpathSelector.class.getSimpleName());
         }
     }
+
+    public void scrollUpToElement(WebElement element) {
+        scrollToElement("false", element);
+    }
+
+    public void scrollDownToElement(WebElement element) {
+        scrollToElement("true", element);
+    }
+
+    private void scrollToElement(String position, WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(" + position + ");", element);
+    }
+
 
 }
