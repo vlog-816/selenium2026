@@ -1,4 +1,4 @@
-package model.test_model_pom;
+package test_model_pom;
 
 import model.pages.LoginPageMod02;
 import org.openqa.selenium.WebDriver;
